@@ -1,0 +1,98 @@
+html {
+    background: #b8d1e0;
+}
+
+body {
+    width: 1100px;
+    height: auto;
+    padding: 20px;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-family: 'Arial';
+    font-size: 90%;
+    color: rgb(54, 47, 45);
+    background: #fff;
+    -webkit-border-radius: 8px;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.2);
+    -moz-border-radius: 8px;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+header {
+    text-align: center;
+}
+
+div.error {
+    background: #CC0000;
+    color: #fff;
+    font-weight: bold;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+
+div.success {
+    background: #2E9F27;
+    color: #fff;
+    font-weight: bold;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+
+#adminMenu li {
+    display: inline;
+    padding-left: 20px;
+}
+
+th {
+    text-align: center;
+}
+
+#handOver, #add {
+    text-align: center;
+}
+
+.reg {
+    margin-left: 83%;
+}
+
+#username {
+    margin-left: 11.4%;
+}
+
+#password {
+    margin-left: 10.4%;
+}
+
+#password2 {
+    margin-left: 2%;
+}
+
+#fullname {
+    margin-left: 7.5%;
+}
+
+.error {
+    color: red;
+}
+
+.back {
+    margin-left: 25%;
+}
+
+.login-block {
+    font-size: 12pt;
+    padding-right: 10%;
+    width: 500px;
+    margin-top: 8%;
+    margin-bottom: 15%;
+    border: 1px cornflowerblue solid;
+}
+
+.logout {
+    margin-left: 88.3%;
+}
+
+.table-celler {
+    margin-left: 14%;
+}

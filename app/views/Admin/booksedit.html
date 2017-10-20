@@ -1,0 +1,80 @@
+#{extends 'admin.html'/}
+
+#{if books}
+<div>
+    <p>Все поля должны быть заполнены в соответствии с правилам</p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Жанр</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+            #{list books, as:'books'}
+            <tr>
+                #{form @EditBook(books.id)}
+                    <td>
+                        <label class="table-celler">
+                            <input value="${books.name}" name="name" />
+                        </label>
+                    </td>
+                    <td>
+                        <label class="table-celler">
+                            <input value="${books.author}" name="author" />
+                        </label>
+                    </td>
+                    <td>
+                        <label class="table-celler">
+                            <input value="${books.genre}" name="genre" />
+                        </label>
+                    </td>
+                    <td>
+                        <label class="table-celler">
+                            <input type="submit" value="Сохранить" />
+                        </label>
+                    </td>
+                #{/form}
+                <td>
+                    <label class="table-celler">
+                        <a href="@{deleteBook(books.id)}"><input value="Удалить" type="submit" /></a>
+                    </label>
+                </td>
+            </tr>
+            #{/list}
+        <tr>
+            #{form @NewBook()}
+                <td>
+                    <label class="table-celler">
+                        <input type="text" name="name" />
+                    </label>
+                </td>
+                <td>
+                    <label class="table-celler">
+                        <input type="text" name="author" />
+                    </label>
+                </td>
+                <td>
+                    <label class="table-celler">
+                        <input type="text" name="genre" />
+                    </label>
+                </td>
+                <td>
+                    <label class="table-celler">
+                        <input type="submit" value="Добавить" />
+                    </label>
+                </td>
+            #{/form}
+        </tr>
+        </tbody>
+    </table>
+</div>
+#{/if}
+#{else}
+<p>
+    Нет книг
+</p>
+#{/else}

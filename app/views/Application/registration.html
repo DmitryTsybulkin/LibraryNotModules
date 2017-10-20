@@ -1,0 +1,35 @@
+#{extends 'main.html'/}
+#{set title:'Регистрация'/}
+
+<h1>Регистрация</h1>
+<br>
+<form id="reg" action="@{Application.saveUser}" method="post">
+    <p>
+        <label>Логин:</label>
+        <input type="text" name="username" id="username" value="${flash.username}" />
+        <span class="error">#{error 'username' /}</span>
+    </p>
+    <p>
+        <label>Пароль:</label>
+        <input type="password" name="password" id="password" value="${flash.password}" />
+        <span class="error">#{error 'password' /}</span>
+    </p>
+    <p>
+        <label>Подтвердите пароль:</label>
+        <input type="password" name="password2" id="password2" value="${flash.password2}" />
+        <span class="error">#{error 'password2' /}</span>
+    </p>
+    <p>
+        <label>Полное имя:</label>
+        <input type="text" name="fullname" id="fullname" value="${flash.fullname}" />
+        <span class="error">#{error 'fullname' /}</span>
+    </p>
+    <p>
+        <input type="submit" id="regist" value="Зарегистрироваться" />
+    </p>
+    <p>
+        Если все будут правильно заполнены, вы будете перенаправлены к странице входа
+    </p>
+</form>
+<a href="@{Application.index()}">На главную</a>
+<a href="@{Admin.index()}" class="back">Войти используя логин и пароль</a>

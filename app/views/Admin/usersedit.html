@@ -1,0 +1,80 @@
+#{extends 'admin.html'/}
+
+#{if users}
+<div>
+    <p>Все поля должны быть заполнены в соответствии с правилам</p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Логин пользователя</th>
+            <th>Пароль</th>
+            <th>Полное имя</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+            #{list users, as:'users'}
+            <tr>
+                #{form @EditUser(users.id)}
+                <td>
+                    <label class="table-celler">
+                        <input value="${users.username}" name="username" />
+                    </label>
+                </td>
+                <td>
+                    <label class="table-celler">
+                        <input value="${users.password}" name="password" />
+                    </label>
+                </td>
+                <td>
+                    <label class="table-celler">
+                        <input value="${users.fullname}" name="fullname" />
+                    </label>
+                </td>
+                <td>
+                    <label class="table-celler">
+                        <input type="submit" value="Сохранить" />
+                    </label>
+                </td>
+                #{/form}
+                <td>
+                    <label class="table-celler">
+                        <a href="@{deleteUser(users.id)}"><input value="Удалить" type="submit" /></a>
+                    </label>
+                </td>
+            </tr>
+            #{/list}
+            <tr>
+                #{form @NewUser()}
+                    <td>
+                        <label class="table-celler">
+                            <input type="text" name="username" />
+                        </label>
+                    </td>
+                    <td>
+                        <label class="table-celler">
+                            <input type="password" name="password" value="" />
+                        </label>
+                    </td>
+                    <td>
+                        <label class="table-celler">
+                            <input type="text" name="fullname" />
+                        </label>
+                    </td>
+                    <td>
+                        <label class="table-celler">
+                            <input type="submit" value="Добавить" />
+                        </label>
+                    </td>
+                #{/form}
+            </tr>
+        </tbody>
+    </table>
+</div>
+#{/if}
+#{else}
+<p>
+    Нет пользователей
+</p>
+#{/else}

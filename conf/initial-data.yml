@@ -1,0 +1,44 @@
+#Users
+
+User(demo):
+    username: demo
+    password: demo1
+    fullname: demo
+
+User(admin):
+    username: admin
+    password: admin
+    fullname: admin
+    isAdmin: true
+
+#Books
+
+Book(n1):
+    name: Play Framework Cookbook
+    author: Alexander Reelsen
+    genre: Учебная литература
+    readers:
+
+Book(n2):
+    name: Божественная комедия
+    author: Данте Алигьери
+    genre: Поэма
+    readers:
+
+Book(n3):
+    name: Архитектура компьютера
+    author: Таненбаум Э.
+    genre: Учебная литература
+    readers:
+
+Book(n4):
+    name: Изучаем Java на примерах и задачах
+    author: Сеттер Р.В.
+    genre: Учебная литература
+    readers:
+
+Book(n5):
+    name: Гироскоп это просто
+    author: В.А. Матвеев
+    genre: Учебная литература
+    readers:

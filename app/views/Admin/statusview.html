@@ -1,0 +1,27 @@
+#{extends 'admin.html'/}
+
+#{if statuses}
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Логин пользователя</th>
+                <th>Название книги</th>
+            </tr>
+            </thead>
+            <tbody>
+            #{list statuses, as:'statuses'}
+                <tr>
+                    <td>${statuses.nick}</td>
+                    <td>${statuses.title}</td>
+                </tr>
+            #{/list}
+            </tbody>
+        </table>
+    </div>
+#{/if}
+#{else}
+<p>
+    Пока ещё никто не читает книг
+</p>
+#{/else}

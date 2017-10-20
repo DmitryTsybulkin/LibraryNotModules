@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Библиотека' /}
+
+<a href="@{Security.login()}" class="login">Войти</a>
+<a href="@{Application.registration()}" class="reg">Зарегестрироваться</a>
+<hr>
+<center><p>Чтобы начать читать, пожалуйста, зарегистрируйтесь или войдите</p></center>
+#{if bookses}
+<div class="library">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Автор</th>
+        </tr>
+        </thead>
+        <tbody>
+            #{list bookses, as:'bookses'}
+            <tr>
+                <td>${bookses.name}</td>
+                <td>${bookses.author}</td>
+            </tr>
+            #{/list}
+        </tbody>
+    </table>
+</div>
+#{/if}
+#{else}
+<p>
+    Книг нет.
+</p>
+#{/else}

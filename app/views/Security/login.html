@@ -1,0 +1,19 @@
+#{extends 'main.html'/}
+#{set title:'Логин' /}
+
+<center><p>Попробуйте admin/admin для входа от имена администратора<br>или demo/demo1 для входа от имени пользователя</p></center>
+<center><div class="login-block">
+#{form @auth()}
+<p id="username-field" style="margin-top: 5%;">
+    Логин:
+    <input type="text" name="username" id="user" value="${flash.username}" style="margin-left: 10%;" />
+</p>
+<p id="password-field">
+    Пароль:
+    <input type="password" name="password" id="pass" value="" style="margin-left: 7%;" />
+</p>
+<p id="signin-field">
+    <input type="submit" id="signin" value="Войти" style="margin-right: 12%;" />
+</p>
+#{/form}
+</div></center>

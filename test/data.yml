@@ -1,0 +1,24 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+# User(bob):
+#   email: bob@gmail.com
+#   password: secret
+#   fullname: Bob
+
+User(demo):
+    username: demo
+    password: demo1
+    fullname: demo
+
+Book(n1):
+    name: PlayFramework
+    author: Alexander Reelsen and Giancarlo Inductivo
+    genre: Учебная литература
+    readers:
+
+Book(n3):
+    name: Архитектура компьютера
+    author: Таненбаум Э.
+    genre: Учебная литература
+    readers:

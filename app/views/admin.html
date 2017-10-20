@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Администрирование</title>
+    <meta charset="UTF-8">
+#{get 'moreStyles'/}
+    <link rel="stylesheet" href="@{'/public/stylesheets/bootstrap.min.css'}">
+    <link rel="stylesheet" type="text/css" href="@{'public/stylesheets/main.css'}" />
+    <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}"></script>
+</head>
+<body id="admin">
+    <header><h1>Администрирование</h1></header>
+    #{if flash?.error}
+        <div class="error">${flash.error}</div>
+    #{/if}
+    #{if flash?.success}
+        <div class="success">${flash.success}</div>
+    #{/if}
+    <a href="@{Admin.index()}" class="mainA">На главную</a>
+    <a href="@{Security.logout()}" class="logout">Выйти</a>
+<hr>
+    <div id="main">
+        <ul id="adminMenu">
+        #{if session.get("username").equals("admin")}
+            <li class="tables">
+                <a href="@{Admin.booksedit()}"><input type="submit" value="Книги" class="btn btn-primary" style="padding-right: 4%; padding-left: 4%;background-color: #77d8ff;" /></a>
+            </li>
+            <li class="tables">
+                <a href="@{Admin.usersedit()}"><input type="submit" value="Пользователи" class="btn btn-primary" style="background-color: #77d8ff;" /></a>
+            </li>
+            <li class="tables">
+                <a href="@{Admin.statusview()}"><input type="submit" value="Кто, что читает" class="btn btn-primary" style="background-color: #77d8ff;" /></a>
+            </li>
+        #{/if}
+        </ul>
+    #{doLayout /}
+</body>
+</html>

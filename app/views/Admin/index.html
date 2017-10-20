@@ -1,0 +1,36 @@
+#{extends 'admin.html'/}
+
+#{if books}
+<div class="library">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Жанр</th>
+            <th>Действия</th>
+            <th>Кто читал</th>
+        </tr>
+        </thead>
+        <tbody>
+            #{list books, as:'books'}
+            <tr>
+                <td>${books.name}</td>
+                <td>${books.author}</td>
+                <td>${books.genre}</td>
+                <td style="width: 200px;">
+                    #{a @Application.StartRead(books.name)}<input type="submit" value="Читать" class="btn btn-primary btn-sm" style="padding-left: 10%;padding-right: 10%;" />#{/a}
+                    #{a @Application.StopRead(books.name)}<input type="submit" value="Закончить" class="btn btn-primary btn-sm" style="margin-left: 2.5%; background-color: #ff5a5a; border: 1px #ff5a5a solid" />#{/a}
+                </td>
+                <td>${books.readers}</td>
+            </tr>
+            #{/list}
+        </tbody>
+    </table>
+</div>
+#{/if}
+#{else}
+<p>
+    Книг нет.
+</p>
+#{/else}
