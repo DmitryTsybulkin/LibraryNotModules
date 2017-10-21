@@ -54,6 +54,11 @@ public class Application extends Controller {
             @MinSize(value = 4, message = "Слишком короткое имя пользователя")
                     String fullname
     ) {
+        User name = User.find("byUsername", username).first();
+        if (name != null) {
+            flash.error("Пользователь с таким логином уже соществует!");
+            registration();
+        }
         if (Validation.hasErrors()) {
             flash.keep("url");
             Validation.keep();
