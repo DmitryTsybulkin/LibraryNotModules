@@ -22,7 +22,7 @@ class OurFileVisitor extends SimpleFileVisitor<Path> {
     /** Метод читает и записывает искомый текст в переменную
      * @see Multi */
     public void getText() throws IOException {
-        System.out.print("Enter text for search: ");
+        System.out.print("Введите искомый текст: ");
         Scanner sc = new Scanner(System.in);
         text = sc.nextLine();
     }
@@ -51,9 +51,9 @@ class OurFileVisitor extends SimpleFileVisitor<Path> {
      */
     @Override
     public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-        System.out.println("Visited: " + dir);
+        System.out.println("Посещённая директория: " + dir);
         if (isDirEmpty(dir)) {
-            System.out.println("Directory is empty: " + dir.getFileName());
+            System.out.println("Директория пуста: " + dir.getFileName());
             return FileVisitResult.SKIP_SUBTREE;
         }
         return FileVisitResult.CONTINUE;
@@ -71,7 +71,7 @@ class OurFileVisitor extends SimpleFileVisitor<Path> {
      */
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        System.out.println("File name: " + file.getFileName());
+        System.out.println("Имя файла: " + file.getFileName());
         /** Список, в который будут записываться строки файла */
         List<String> content = null;
         /** Тип данных, содержащихся в файле */
@@ -93,7 +93,7 @@ class OurFileVisitor extends SimpleFileVisitor<Path> {
                 /** Если прочитанные строки содержат искомый текст, выводится название файла
                  * и абсолютный путь к нему */
                 if (content.toString().contains(text)) {
-                    System.out.println("TEXT WAS FOUND in: " + file.getFileName() + "\n" + "Path to file: " + file.toAbsolutePath());
+                    System.out.println("ТЕКСТ НАЙДЕН в: " + file.getFileName() + "\n" + "Путь к файлу: " + file.toAbsolutePath());
                     content.clear();
                     return FileVisitResult.TERMINATE;
                 }
@@ -101,7 +101,7 @@ class OurFileVisitor extends SimpleFileVisitor<Path> {
                  * 2 исключение - если файл является системным и доступ к нему ограничен */
             } catch (MalformedInputException e) {
                 e.getMessage();
-                System.out.println("File " + file.getFileName() + " not reading, because charset is not UTF_8");
+                System.out.println("Файл " + file.getFileName() + " не будет прочитан, потому что его кодировка не соответствует UTF_8");
             } catch (FileSystemException e) {
                 e.getMessage();
             }
