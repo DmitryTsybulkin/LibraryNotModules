@@ -25,7 +25,7 @@ public class Multi {
 
         /** Записываем в переменную начальную директорию,
          * из которой будет осуществлён обход файловой системы */
-        System.out.print("Enter the initial directory where you want to find the text (by default, the search will be done in directory files): ");
+        System.out.print("Введите коренную директорию в которой нужно осуществить поиск (по умолчанию поиск в директории - files): ");
         Scanner sc = new Scanner(System.in);
         String Dir = sc.nextLine();
 
@@ -55,6 +55,6 @@ public class Multi {
         executor.shutdown();
         /** Выводим на экран затраченное время */
         long SpentTime = System.currentTimeMillis() - start;
-        System.out.println("Spent time: " + SpentTime + " milliseconds");
+        System.out.println("Затрачено времени: " + SpentTime + " миллисекунд");
     }
 }
