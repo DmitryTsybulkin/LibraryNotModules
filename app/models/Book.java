@@ -3,8 +3,7 @@ package models;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -18,19 +17,25 @@ import java.util.List;
 @Entity
 public class Book extends Model {
     /** Название книги */
+    @Column
     @Required(message = "Обязательное поле*")
     public String name;
 
     /** Имя автора */
+    @Column
     @Required(message = "Обязательное поле*")
     public String author;
 
     /** Жанр книги */
+    @Column
     @Required(message = "Обязательное поле*")
     public String genre;
 
     /** Список читателей определённой книги */
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "readers",
+            joinColumns = @JoinColumn(name = "book"),
+            inverseJoinColumns = @JoinColumn(name = "user"))
     public List<User> readers;
 
     /** Инициализируем столбцы и сохраняем */

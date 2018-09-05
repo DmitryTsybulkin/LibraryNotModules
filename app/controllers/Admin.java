@@ -10,6 +10,7 @@ import play.data.validation.Validation;
 import play.mvc.Before;
 import play.mvc.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,6 +32,10 @@ public class Admin extends Controller {
     public static void setConnectedUser() {
         if (session.contains("username")) {
             User user = User.find("byUsername", session.get("username")).first();
+            if (user == null) {
+                flash.error("Пользователь не существует!");
+                Application.index();
+            }
             renderArgs.put("username", user.username);
         } else {
             flash.error("Вы ещё не вошли в систему!");
@@ -43,6 +48,9 @@ public class Admin extends Controller {
      */
     public static void index() {
         List<Book> books = Book.find("order by name").fetch();
+        if (books == null) {
+            books = new ArrayList<>();
+        }
         render(books);
     }
 
@@ -51,6 +59,9 @@ public class Admin extends Controller {
      */
     public static void booksedit() {
         List<Book> books = Book.find("order by name").fetch();
+        if (books == null) {
+            books = new ArrayList<>();
+        }
         render(books);
     }
 
@@ -66,6 +77,10 @@ public class Admin extends Controller {
             flash.error("Все поля должны быть заполнены");
         } else {
             Book book = Book.findById(id);
+            if (book == null) {
+                flash.error("Книга не найдена!");
+                booksedit();
+            }
             book.setName(name);
             book.setAuthor(author);
             book.setGenre(genre);
@@ -82,7 +97,7 @@ public class Admin extends Controller {
      * @param author - автор
      * @param genre - жанр
      */
-    public static void NewBook(@Required String name, @Required String author, @Required String genre) throws Throwable {
+    public static void NewBook(@Required String name, @Required String author, @Required String genre) {
         if (Validation.hasErrors()) {
             flash.error("Все поля должны быть заполнены");
         } else {
@@ -99,6 +114,10 @@ public class Admin extends Controller {
      */
     public static void deleteBook(long id) {
         Book book = Book.findById(id);
+        if (book == null) {
+            flash.error("Книга не найдена!");
+            booksedit();
+        }
         book.delete();
         booksedit();
     }
@@ -108,6 +127,9 @@ public class Admin extends Controller {
      */
     public static void usersedit() {
         List<User> users = User.findAll();
+        if (users == null) {
+            users = new ArrayList<>();
+        }
         render(users);
     }
 
@@ -133,6 +155,10 @@ public class Admin extends Controller {
             flash.error("Неправильно заполнены поля или не заполнены!");
         } else {
             User user = User.findById(id);
+            if (user == null) {
+                flash.error("Пользователь не найден!");
+                usersedit();
+            }
             user.setUsername(username);
             user.setPassword(password);
             user.setFullname(fullname);
@@ -148,7 +174,10 @@ public class Admin extends Controller {
      */
     public static void deleteUser(long id) {
         User user = User.findById(id);
-        if (user.isAdmin) {
+        if (user == null) {
+            flash.error("Пользователь не найден!");
+            usersedit();
+        } else if (user.isAdmin) {
             flash.error("Вы не можете удалить администратора");
         } else {
             flash.success("Пользователь " + user.username + " удалён");
@@ -162,7 +191,6 @@ public class Admin extends Controller {
      * @param username - username пользователя
      * @param password - пароль
      * @param fullname - реальное имя
-     * @throws Throwable
      */
     public static void NewUser(@Required
                                @MinSize(value = 4)
@@ -173,7 +201,7 @@ public class Admin extends Controller {
                                        String password,
                                @Required
                                @MinSize(value = 4)
-                                       String fullname) throws Throwable {
+                                       String fullname) {
         if (Validation.hasErrors()) {
             flash.error("Неправильно заполнены поля или не заполнены");
         } else {
@@ -188,6 +216,9 @@ public class Admin extends Controller {
      */
     public static void statusview() {
         List<Status> statuses = Status.findAll();
+        if (statuses == null) {
+            statuses = new ArrayList<>();
+        }
         render(statuses);
     }
 

@@ -2,6 +2,7 @@ package models;
 
 import play.db.jpa.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
@@ -14,9 +15,11 @@ import javax.persistence.Entity;
 @Entity
 public class Status extends Model {
     /** username пользователя */
+    @Column
     public String nick;
 
     /** название книги */
+    @Column
     public String title;
 
     /** Инициализируем столбцы и сохраняем */

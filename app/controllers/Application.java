@@ -7,6 +7,7 @@ import play.data.validation.*;
 import play.mvc.Controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,10 +15,16 @@ import java.util.List;
  */
 public class Application extends Controller {
 
+    private final static String path = "resources";
+    private final static String postfix = ".pdf";
+
     /** <h1>Метод для отображения страницы с таблицей книг, для не авторизованного пользователя</h1> */
     public static void index() {
         session.clear();
         List<Book> bookses = Book.find("order by name").fetch();
+        if (bookses == null) {
+            bookses = new ArrayList<>();
+        }
         render(bookses);
     }
 
@@ -54,6 +61,11 @@ public class Application extends Controller {
             @MinSize(value = 4, message = "Слишком короткое имя пользователя")
                     String fullname
     ) {
+        User name = User.find("byUsername", username).first();
+        if (name != null) {
+            flash.error("Пользователь с таким логином уже соществует!");
+            registration();
+        }
         if (Validation.hasErrors()) {
             flash.keep("url");
             Validation.keep();
@@ -80,9 +92,21 @@ public class Application extends Controller {
      * @param name - название книги, которую пользователь будет читать
      */
     public static void StartRead(String name) {
+        if (!session.contains("username")) {
+            flash.error("Пользователь не авторизован!");
+            Admin.index();
+        }
         String user = session.get("username");
         User us = User.find("byUsername", user).first();
+        if (us == null) {
+            flash.error("Пользователь не найден!");
+            Admin.index();
+        }
         Book book = Book.find("byName", name).first();
+        if (book == null) {
+            flash.error("Книга не существует!");
+            Admin.index();
+        }
         Status stat = Status.find("byNickAndTitle", us.username, name).first();
         if (book.readers.contains(us)) {
             flash.success("Вы уже читали эту книгу");
@@ -91,17 +115,22 @@ public class Application extends Controller {
             book.save();
         }
         if (stat == null) {
-            Status status = new Status(user, name);
-            flash.success("Теперь вы читает книгу: " + name);
+            stat = new Status(user, name);
+            stat.save();
+            flash.success("Теперь вы читаете книгу: " + name);
         } else {
             flash.success("Вы уже читаете эту книгу!");
         }
         try {
             File file = getFile(name);
+            if (file == null) {
+                flash.error("Книга не найдена!");
+                flash.error("Файла книги не существует");
+                Admin.index();
+            }
             renderBinary(file);
         } catch (NullPointerException e) {
-            flash.error("Файла книги не существует");
-            Admin.index();
+            e.getLocalizedMessage();
         }
     }
 
@@ -111,14 +140,13 @@ public class Application extends Controller {
      * @param name - название книги
      * @return - файл книги в формате pdf
      */
-    private static File getFile(String name) {
-        String path = "resources";
-        name += ".pdf";
+    private static File getFile(String name) throws NullPointerException {
+        name += postfix;
         File f = new File(path + ".");
         File[] files = f.listFiles();
-        for (int i = 0; i < files.length; i++) {
-            if (files[i].toString().equals(path + ".\\" + name) && files[i].isFile()) {
-                return files[i];
+        for (File file : files) {
+            if (file.toString().equals(path + ".\\" + name) && file.isFile()) {
+                return file;
             }
         }
         return null;
@@ -129,20 +157,23 @@ public class Application extends Controller {
      * После того, как авторизованный пользователь нажимает на странице
      * кнопку "Закончить", в БД, в таблицу Status делается запрос поиска
      * кортежа по  username'у пользователя и названию книги, если он есть
-     * то удаляется, иначе:
-     * @exception NullPointerException - если такого статуса/кортежа нет.
+     * то удаляется
      * Получаемый параметр:
      * @param name - название книги
      */
     public static void StopRead(String name) {
+        if (!session.contains("username")) {
+            flash.error("Пользователь не авторизован!");
+            Admin.index();
+        }
         String user = session.get("username");
         Status st = Status.find("byNickAndTitle", user, name).first();
-        try {
-            st.delete();
-            flash.success("Вы успешно сдали книгу!");
-        } catch (NullPointerException e) {
-            flash.error("Вы не можете закончить читать кинигу, не начав!");
+        if (st == null) {
+            flash.error("Статус чтения не найден!");
+            Admin.index();
         }
+        st.delete();
+        flash.success("Вы успешно сдали книгу!");
         Admin.index();
     }
 

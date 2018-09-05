@@ -5,6 +5,7 @@ import play.data.validation.MinSize;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
@@ -15,22 +16,26 @@ import javax.persistence.Entity;
 @Entity
 public class User extends Model {
     /** username пользователя, должен быть не менее 4 символов */
+    @Column
     @Required(message = "Обязательное поле*")
     @MinSize(value = 4, message = "Слишком короткий логин")
     public String username;
 
     /** пароль пользователя */
+    @Column
     @Required(message = "Обязательное поле*")
     @MaxSize(value = 20, message = "Пароль должен быть не более 20 знаков")
     @MinSize(value = 5, message = "Слишком короткий пароль")
     public String password;
 
     /** Реальное имя пользователя */
+    @Column
     @Required(message = "Обязательное поле*")
     @MinSize(value = 4, message = "Слишком короткое имя пользователя")
     public String fullname;
 
     /** Является пользователь администратором или нет */
+    @Column
     public boolean isAdmin;
 
     /** Инициализируем столбцы и сохраняем */

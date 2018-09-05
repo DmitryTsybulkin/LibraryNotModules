@@ -5,7 +5,7 @@
 <a href="@{Application.registration()}" class="reg">Зарегестрироваться</a>
 <hr>
 <center><p>Чтобы начать читать, пожалуйста, зарегистрируйтесь или войдите</p></center>
-#{if bookses}
+#{if !bookses.isEmpty()}
 <div class="library">
     <table class="table table-bordered">
         <thead>

@@ -1,6 +1,6 @@
 #{extends 'admin.html'/}
 
-#{if users}
+#{if !users.isEmpty()}
 <div>
     <p>Все поля должны быть заполнены в соответствии с правилам</p>
     <table class="table table-bordered">

@@ -23,9 +23,8 @@ public class Security extends Controller {
      * Метод для аутентификации пользователя в системе
      * @param username - username пользователя
      * @param password - пароль
-     * @throws Throwable
      */
-    public static void auth(String username, String password) throws Throwable {
+    public static void auth(String username, String password) {
         User user = User.find("byUsernameAndPassword", username, password).first();
         if (user != null) {
             flash.success("Добро пожаловать, " + user.username);
@@ -41,9 +40,8 @@ public class Security extends Controller {
 
     /**
      * Метод для выхода пользователя из системы
-     * @throws Throwable
      */
-    public static void logout() throws Throwable{
+    public static void logout() {
         session.clear();
         flash.success("Вы успешно вышли");
         Application.index();

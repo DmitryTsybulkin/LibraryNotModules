@@ -1,6 +1,6 @@
 #{extends 'admin.html'/}
 
-#{if books}
+#{if !books.isEmpty()}
 <div class="library">
     <table class="table table-bordered">
         <thead>
@@ -19,7 +19,7 @@
                 <td>${books.author}</td>
                 <td>${books.genre}</td>
                 <td style="width: 200px;">
-                    #{a @Application.StartRead(books.name)}<input type="submit" value="Читать" class="btn btn-primary btn-sm" style="padding-left: 10%;padding-right: 10%;" />#{/a}
+                    <a href = "@{Application.StartRead(books.name)}" target="_blank"><input type="submit" value="Читать" class="btn btn-primary btn-sm" style="padding-left: 10%;padding-right: 10%;" /></a>
                     #{a @Application.StopRead(books.name)}<input type="submit" value="Закончить" class="btn btn-primary btn-sm" style="margin-left: 2.5%; background-color: #ff5a5a; border: 1px #ff5a5a solid" />#{/a}
                 </td>
                 <td>${books.readers}</td>
