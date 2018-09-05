@@ -49,7 +49,7 @@ public class Admin extends Controller {
     public static void index() {
         List<Book> books = Book.find("order by name").fetch();
         if (books == null) {
-            books = new ArrayList<>();
+            books = new ArrayList<Book>();
         }
         render(books);
     }
@@ -60,7 +60,7 @@ public class Admin extends Controller {
     public static void booksedit() {
         List<Book> books = Book.find("order by name").fetch();
         if (books == null) {
-            books = new ArrayList<>();
+            books = new ArrayList<Book>();
         }
         render(books);
     }
@@ -128,7 +128,7 @@ public class Admin extends Controller {
     public static void usersedit() {
         List<User> users = User.findAll();
         if (users == null) {
-            users = new ArrayList<>();
+            users = new ArrayList<User>();
         }
         render(users);
     }
@@ -217,7 +217,7 @@ public class Admin extends Controller {
     public static void statusview() {
         List<Status> statuses = Status.findAll();
         if (statuses == null) {
-            statuses = new ArrayList<>();
+            statuses = new ArrayList<Status>();
         }
         render(statuses);
     }

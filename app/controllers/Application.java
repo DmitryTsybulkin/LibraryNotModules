@@ -23,7 +23,7 @@ public class Application extends Controller {
         session.clear();
         List<Book> bookses = Book.find("order by name").fetch();
         if (bookses == null) {
-            bookses = new ArrayList<>();
+            bookses = new ArrayList<Book>();
         }
         render(bookses);
     }
@@ -114,23 +114,25 @@ public class Application extends Controller {
             book.readers.add(us);
             book.save();
         }
-        if (stat == null) {
+        File file = null;
+        try {
+            file = getFile(name);
+            if (file == null) {
+                flash.error("Книга не найдена!");
+                Admin.index();
+            } else {
+                renderBinary(file);
+            }
+        } catch (NullPointerException e) {
+            e.getLocalizedMessage();
+        }
+        if (stat == null && file != null) {
             stat = new Status(user, name);
             stat.save();
             flash.success("Теперь вы читаете книгу: " + name);
         } else {
             flash.success("Вы уже читаете эту книгу!");
-        }
-        try {
-            File file = getFile(name);
-            if (file == null) {
-                flash.error("Книга не найдена!");
-                flash.error("Файла книги не существует");
-                Admin.index();
-            }
-            renderBinary(file);
-        } catch (NullPointerException e) {
-            e.getLocalizedMessage();
+            Admin.index();
         }
     }
 
