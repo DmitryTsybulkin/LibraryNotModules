@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91ae2ba0-9d63-4108-a83b-d3dccfe887af" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/LibraryNotModules.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryNotModules.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryNotModules.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryNotModules.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryNotModules.iws" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryNotModules.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Security.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/Admin/booksedit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Admin/booksedit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/Admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Admin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/Admin/statusview.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Admin/statusview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/Admin/usersedit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Admin/usersedit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/Application/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Application/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/application.conf" afterDir="false" />
     </list>
     <ignored path="LibraryNotModules.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,38 +23,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Book.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/Book.java">
+      <file leaf-file-name="Admin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Admin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="221">
+              <caret line="219" column="47" lean-forward="true" selection-start-line="219" selection-start-column="47" selection-end-line="219" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bootstrap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Bootstrap.java">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/routes">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/ApplicationTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="6" column="53" lean-forward="true" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+            <state relative-caret-position="-232">
+              <caret line="116" column="24" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -124,10 +93,10 @@
         <option value="$PROJECT_DIR$/app/views/Application/index.html" />
         <option value="$PROJECT_DIR$/conf/application.conf" />
         <option value="$PROJECT_DIR$/test/TestForActions.java" />
-        <option value="$PROJECT_DIR$/app/controllers/Application.java" />
         <option value="$PROJECT_DIR$/app/controllers/Security.java" />
-        <option value="$PROJECT_DIR$/app/controllers/Admin.java" />
         <option value="$PROJECT_DIR$/app/models/Book.java" />
+        <option value="$PROJECT_DIR$/app/controllers/Admin.java" />
+        <option value="$PROJECT_DIR$/app/controllers/Application.java" />
       </list>
     </option>
   </component>
@@ -874,12 +843,20 @@
       <workItem from="1521958255394" duration="757000" />
       <workItem from="1522000729239" duration="693000" />
       <workItem from="1523786848489" duration="170000" />
-      <workItem from="1536120610724" duration="3650000" />
+      <workItem from="1536120610724" duration="4887000" />
     </task>
+    <task id="LOCAL-00001" summary="fixes">
+      <created>1536124451622</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1536124451622</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90843000" />
+    <option name="totallyTimeSpent" value="92080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -890,15 +867,15 @@
       <window_info id="Palette&#9;" order="0" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.52342606" side_tool="true" weight="0.251981" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.52420574" side_tool="true" weight="0.24917492" />
       <window_info anchor="right" id="Maven Projects" order="1" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.329653" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.47657394" visible="true" weight="0.24917492" />
+      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32838285" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" sideWeight="0.47579426" visible="true" weight="0.23762377" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="right" id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21255673" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.21255673" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.329653" />
       <window_info anchor="right" id="ASM" order="3" />
@@ -923,6 +900,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -933,6 +936,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1236,13 +1243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1257,24 +1257,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Admin.java">
+    <entry file="file://$PROJECT_DIR$/app/Bootstrap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="99" column="102" selection-start-line="99" selection-start-column="102" selection-end-line="99" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="159" column="19" selection-start-line="159" selection-start-column="19" selection-end-line="159" selection-end-column="19" />
+        <state relative-caret-position="68">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="106">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="219" column="47" lean-forward="true" selection-start-line="219" selection-start-column="47" selection-end-line="219" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-232">
+          <caret line="116" column="24" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
         </state>
       </provider>
     </entry>
